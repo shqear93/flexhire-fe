@@ -1,14 +1,15 @@
-import Button from "@mui/material/Button";
-import type { Metadata } from "next";
+"use client"
 
-export const metadata: Metadata = {
-  title: "Dashboard",
-};
+import Button from "@mui/material/Button";
+import CurrentUser from "@/components/CurrentUser";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
       hi in the home page
+
+      <CurrentUser/>
 
       <Button variant="contained">Hello world</Button>
     </main>

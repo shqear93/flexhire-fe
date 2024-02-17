@@ -1,12 +1,21 @@
+import createEnvironment from '@/config/relayEnvironment'; // Adjust the import path as necessary
+import {fetchQuery, graphql} from 'relay-runtime';
+
 export async function GET() {
-    return Response.json({
-        "data": {
-            "currentUser": {
-                "email": "qmax93@gmail.com",
-                "name": "Khaled Abu Shqear",
-                "id": "dXNlcnMtMTM4NzI=",
-                "avatarUrl": "https://cdn.filestackcontent.com/lgJacvBJQHGQdhAKL11n"
+    const graphQuery = graphql`
+        query routeDashboardCurrentUserQuery {
+            currentUser {
+                id
+                email
+                name
+                avatarUrl
             }
         }
-    });
+    `;
+
+    const environment = createEnvironment();
+
+    const data = await fetchQuery(environment, graphQuery, {}).toPromise();
+
+    return Response.json(data);
 }
