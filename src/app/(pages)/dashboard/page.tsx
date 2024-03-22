@@ -1,7 +1,6 @@
 "use client"
 
 import Button from "@mui/material/Button";
-import CurrentUser from "@/components/CurrentUser";
 
 export default function Dashboard() {
   return (

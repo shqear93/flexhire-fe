@@ -20,7 +20,7 @@ export const options: NextAuthOptions = {
       },
 
       // @ts-ignore
-      async authorize(credentials, req): Promise<User | null> {
+      async authorize(credentials): Promise<User | null> {
         let token = credentials?.token
         if (_.isEmpty(token)) return null
         const user = token ? await getUserByToken(token) : null;
