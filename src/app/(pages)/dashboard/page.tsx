@@ -9,8 +9,6 @@ export default function Dashboard() {
 
       hi in the home page
 
-      <CurrentUser/>
-
       <Button variant="contained">Hello world</Button>
     </main>
   );

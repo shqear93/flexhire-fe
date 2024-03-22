@@ -1,23 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {getBaseUrl} from "@/lib/utils";
+import User from "@/interfaces/User";
 
-const CurrentUserName = () => {
-  const [userName, setUserName] = useState(null);
-
-  const baseUrl = getBaseUrl();
-
-  useEffect(() => {
-    fetch(`${baseUrl}/api/current-user`)
-      .then(response => response.json())
-      .then(data => setUserName(data.currentUser.name))
-      .catch(error => console.error(error));
-  }, [baseUrl]);
-
+const CurrentUser = ({user}: { user: User | null }) => {
   return (
     <div>
-      {userName ? `Hello, ${userName}` : 'Loading...'}
+      {user ? `Hello, ${user.name}` : 'Loading...'}
     </div>
   );
 }
 
-export default CurrentUserName;
+export default CurrentUser;
